@@ -87,7 +87,14 @@
         e.preventDefault();
       }
     }, false);
-
+    function setFocus() {
+      try {
+        window.focus();
+          if (Module && Module.canvas) {
+            Module.canvas.focus();
+          }
+      } catch (e) {}
+    }
     var Module = {
       arguments: ["/game.love"],
       INITIAL_MEMORY: 256000000,
@@ -162,6 +169,7 @@
 
 
 </body></html>
+
 
 
 
