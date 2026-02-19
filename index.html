@@ -1,11 +1,13 @@
-<html lang="en-us"><head><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PXHK7Q7G3Z"></script>
+<!doctype html>
+<html lang="en-us">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PXHK7Q7G3Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-PXHK7Q7G3Z');
 </script>
-
+<head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=1">
@@ -15,24 +17,24 @@
   <link rel="stylesheet" type="text/css" href="theme/love.css">
 
   <script src="consolewrapper.js"></script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PXHK7Q7G3Z"></script><script>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PXHK7Q7G3Z"></script>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-PXHK7Q7G3Z');
-</script></head>
-
-
+</script>
 <body>
   <center>
     <div>
       <!-- <h1>Balatro</h1> -->
-      <canvas id="loadingCanvas" oncontextmenu="event.preventDefault()" width="286" height="1351" style="display: none;"></canvas>
-      <canvas id="canvas" oncontextmenu="event.preventDefault()" width="1100" height="1351" style="cursor: none; visibility: visible;"></canvas>
+      <canvas id="loadingCanvas" oncontextmenu="event.preventDefault()" width="800" height="600"></canvas>
+      <canvas id="canvas" oncontextmenu="event.preventDefault()" width="100%" height="100%"></canvas>
     </div>
   </center>
 
-  <script type="text/javascript">
+  <script type='text/javascript'>
     window.callad = () => {
       window.parent.postMessage({
         type: 'adcall'
@@ -87,26 +89,10 @@
         e.preventDefault();
       }
     }, false);
-    function setFocus() {
-      try {
-        window.focus();
-          if (Module && Module.canvas) {
-            Module.canvas.focus();
-          }
-      } catch (e) {}
-    }
+
     var Module = {
-      arguments: ["/game.love"],
+      arguments: ["./game.love"],
       INITIAL_MEMORY: 256000000,
-    
-      // 🔥 ADD THIS (do not remove anything else)
-      locateFile: function(path) {
-        if (path.endsWith(".wasm")) {
-          return "https://cdn.jsdelivr.net/gh/imarcussun2-afk/balatro-web@main/" + path;
-        }
-        return path;
-      },
-    
       printErr: console.error.bind(console),
       canvas: (function() {
         var canvas = document.getElementById('canvas');
@@ -146,39 +132,15 @@
       };
     };
 
-    window.applicationLoad = function() {
-      Module.preRun = Module.preRun || [];
-    
-      Module.preRun.push(function() {
-        return fetch("game.love")
-          .then(response => response.arrayBuffer())
-          .then(buffer => {
-            Module.FS_createDataFile("/", "game.love", new Uint8Array(buffer), true, true);
-          });
-      });
-    
+    var applicationLoad = function(e) {
       Love(Module);
-    };
+    }
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/imarcussun2-afk/balatro-web@main/consolewrapper.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/imarcussun2-afk/balatro-web@main/game.js?v=d7e34743-2fea-4de6-8a0e-1103b5fcf07f"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/imarcussun2-afk/balatro-web@main/love.js" onload="applicationLoad(this)"></script>
+  <script type="text/javascript" src="game.js?v=d7e34743-2fea-4de6-8a0e-1103b5fcf07f"></script>
+  <script async type="text/javascript" src="love.js" onload="applicationLoad(this)"></script>
   <!-- <footer>
       <p>Built with <a href="https://github.com/Davidobot/love.js">love.js</a> <button onclick="goFullScreen();">Go Fullscreen</button><br>Hint: Reload the page if screen is blank</p>
     </footer> -->
+</body>
 
-
-</body></html>
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>
