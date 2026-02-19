@@ -1,81 +1,50 @@
-html {
-    box-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-html, body {
+body {
+    background-image: url(bg.png);
+    background-repeat: no-repeat;
     font-family: arial;
-    padding: 0;
     margin: 0;
-
-    color: #ea316e;
-    background-color: #ffffff;
+    padding: 0;
+    background-color: rgb( 154, 205, 237 );
+    color: rgb( 28, 78, 104 );
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    height: 100%;
 }
 
+footer {
+    font-family: arial;
+    font-size: 12px;
+    padding-left: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+/* Links */
 a {
     text-decoration: none;
-    color: #ea316e;
 }
-a:link, a:visited, a:active {
-    color: #ea316e;
+a:link {
+    color: rgb( 233, 73, 154 );
+}
+a:visited {
+    color: rgb( 110, 30, 71 );
 }
 a:hover {
-	color: #25aae1;
+    color: rgb( 252, 207, 230 );
 }
 
-.love-desktop-frame {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    overflow: hidden;
-}
-
-.love-desktop-frame:-webkit-full-screen {
-    /* Auto width and height in Safari/Chrome fullscreen. */
-    width: auto;
-    height: auto;
-}
-
+/* the canvas *must not* have any border or padding, or mouse coords will be wrong */
 #canvas {
-    outline: none;
-    vertical-align: bottom;
-    border: 0;
-    position: fixed;
-    background-color: #f8f8f8;
-    width: 100%;
-    height: 100%;
-}
-
-#message-container {
-	text-align:center;
+    padding: 0;
+    margin: 0;
+    display: block;
+    border: 0px none;
+    visibility: visible;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 90%;
-}
-
-#progress-border {
-  	border: 1px solid #ea316e;
-}
-  
-#progress-bar {
-	background-color: #ea316e;
-  	width: 0%;
-   	height: 16px;
-}
-
-#message-container > div {
-  	background-color:transparent;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
 }
