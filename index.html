@@ -139,8 +139,18 @@
       };
     };
 
-    var applicationLoad = function(e) {
+    window.applicationLoad = async function() {
+      const response = await fetch(
+        "https://cdn.jsdelivr.net/gh/imarcussun2-afk/balatro-web@main/game.love"
+      );
+    
+      const buffer = await response.arrayBuffer();
+      const data = new Uint8Array(buffer);
+    
+      Module.FS_createDataFile("/", "game.love", data, true, true);
+    
       Love(Module);
+    };
     }
   </script>
   <script src="https://cdn.jsdelivr.net/gh/imarcussun2-afk/balatro-web@main/consolewrapper.js"></script>
@@ -152,6 +162,7 @@
 
 
 </body></html>
+
 
 
 
